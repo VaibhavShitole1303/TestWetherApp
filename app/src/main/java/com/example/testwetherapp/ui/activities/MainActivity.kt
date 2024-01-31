@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                 val lat=location.latitude
                 val lan=location.longitude
 
-                val mypref=SharedPref(this)
+                val mypref=SharedPref.getInstance(this)
                 mypref.setValue("lat",lat.toString())
                 mypref.setValue("lon",lan.toString())
 
@@ -160,6 +160,14 @@ class MainActivity : AppCompatActivity() {
                 binding.tvLocation.text=it.city?.name.toString()
                 val wetherList=it.list
                 val presentDate=currentDatepattern
+                val mypref=SharedPref.getInstance(this)
+                try {
+                    mypref.setValue("city",it.city?.name.toString())
+
+                }catch (e:Exception){
+
+                }
+
 
                 wetherList?.forEach{weather ->
                     //seperate all the wether object that have date of today
@@ -275,7 +283,14 @@ class MainActivity : AppCompatActivity() {
             }
 
         } )
+        binding.ivReload.setOnClickListener {
+            val mypref=SharedPref.getInstance(this)
+            val city=  mypref.getvalue("city")
+            mViewModelWeatherData.getWeatherByCityData(city!!)
+            progressDialog = ProgressDialog.show(this@MainActivity, "Loading", "Please wait...", true, false)
 
+
+        }
         binding.tv5Days.setOnClickListener {
             var intent=Intent(this@MainActivity,ForeCastActivity::class.java)
 

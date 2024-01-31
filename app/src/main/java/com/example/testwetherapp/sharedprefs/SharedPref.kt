@@ -22,7 +22,7 @@ class SharedPref internal constructor(private  val context:Context) {
     }
 
     fun setValue(key:String,value:String){
-        prefs.edit().putString(key,value)
+        prefs.edit().putString(key,value).apply()
     }
 
     fun getvalue(key:String): String? {
