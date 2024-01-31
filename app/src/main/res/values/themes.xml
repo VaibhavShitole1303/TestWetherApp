@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyWeatherApp_v" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+<!--         <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="Theme.MyWeatherApp_v" parent="Base.Theme.MyWeatherApp_v" />
+
+    <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">
+
+        </item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay_card_custom_corners" parent="">
+        <item name="cornerFamily">
+            rounded
+        </item>
+        <item name="cornerSizeTopLeft">
+            0dp
+        </item>
+        <item name="cornerSizeTopRight">
+            0dp
+        </item>
+        <item name="cornerSizeBottomRight">
+            30dp
+        </item>
+        <item name="cornerSizeBottomLeft">
+            30dp
+        </item>
+    </style>
+</resources>
